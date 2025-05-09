@@ -1,4 +1,4 @@
-1:  Based on what you have learnt in the class, do the following steps:
+1.a:  Based on what you have learnt in the class, do the following steps:
                  a. Create a new folder
                  b. Put the following files in the folder
 
@@ -10,7 +10,7 @@
                  d. Commit them
                  e. And finally push them to GitHub
 
-2. Please share the commands for the above points
+1.b: Please share the commands for the above points
 
 A:  a. Creating a new folder
 
@@ -46,3 +46,143 @@ A:  a. Creating a new folder
          : git push -u origin main
 
 
+2: Tasks to Be Performed: 
+
+
+1. Create a Git working directory with feature1.txt and feature2.txt in the master branch 
+
+2. Create 3 branches develop, feature1 and feature2 
+
+3. In develop branch create develop.txt, do not stage or commit it 
+
+4. Stash this file and check out to feature1 branch 
+
+5. Create new.txt file in feature1 branch, stage and commit this file 
+
+6. Checkout to develop, unstash this file and commit 
+
+7. Please submit all the Git commands used to do the above step
+
+A: Step 1: Create Git working directory with feature1.txt and feature2.txt in master branch
+
+   bash:mkdir Git-Project
+        cd Git-Project
+        git init
+
+        touch feature1.txt feature2.txt
+        echo "This is feature 1" > feature1.txt
+        echo "This is feature 2" > feature2.txt
+
+        git add feature1.txt feature2.txt
+        git commit -m "Add feature1.txt and feature2.txt to master"
+
+Step 2: Create 3 branches: develop, feature1, and feature2
+
+    bash:git branch develop
+         git branch feature1
+         git branch feature2
+
+Step 3: In develop branch create develop.txt, do not stage or commit
+
+    bash:git checkout develop
+         touch develop.txt
+         echo "Development in progress" > develop.txt
+    
+        
+Step 4: Stash this file and check out to feature1 branch
+
+    bash:git stash
+         git checkout feature1
+
+Step 5: Create new.txt in feature1 branch, stage and commit
+    
+    bash:touch new.txt
+         echo "This is new feature work" > new.txt
+
+         git add new.txt
+         git commit -m "Add new.txt to feature1 branch"
+
+Step 6: Checkout to develop, unstash the file, and commit
+    
+    bash:git checkout develop
+         git stash pop  # brings back develop.txt
+
+         git add develop.txt
+         git commit -m "Add develop.txt after unstashing"
+
+
+3. Tasks to Be Performed: 
+
+
+   1. Create a Git working directory, with the following branches: 
+
+
+            Develop 
+
+            F1 
+
+            f2 
+
+
+2. In the master branch, commit main.txt file 
+
+3. Put develop.txt in develop branch, f1.txt and f2.txt in f1 and f2 respectively 
+
+4. Push all these branches to GitHub
+
+5. On local delete f2 branch 
+
+6. Delete the same branch on GitHub as well
+
+
+A: 1. Create a Git working directory with branches: develop, f1, f2
+
+      bash:mkdir Git-MultiBranch-Task
+           cd Git-MultiBranch-Task
+           git init
+
+   2. In the master branch, commit main.txt
+
+      bash:touch main.txt
+           echo "This is the main file" > main.txt
+
+           git add main.txt
+           git commit -m "Add main.txt to master"
+    
+   3. Create branches develop, f1, f2 and commit respective files
+
+      bash:# Create and switch to develop
+             git checkout -b develop
+             touch develop.txt
+             echo "This is the develop branch file" > develop.txt
+             git add develop.txt
+             git commit -m "Add develop.txt to develop branch"
+             
+             # Create and switch to f1
+             git checkout -b f1
+             touch f1.txt
+             echo "This is F1 branch file" > f1.txt
+             git add f1.txt
+             git commit -m "Add f1.txt to f1 branch"
+             
+             # Create and switch to f2
+             git checkout -b f2
+             touch f2.txt
+             echo "This is F2 branch file" > f2.txt
+             git add f2.txt
+             git commit -m "Add f2.txt to f2 branch"
+  
+  4:git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+            
+        Then push all branches:
+                 
+            bash:git push -u origin master
+                 git push -u origin develop
+                 git push -u origin f1
+                 git push -u origin f2
+                 
+  5: Delete f2 branch locally               
+       
+            bash:git branch -d f2
+     
+            git push origin --delete f2
