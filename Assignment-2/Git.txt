@@ -1,4 +1,4 @@
-1.a:  Based on what you have learnt in the class, do the following steps:
+Q1.a:  Based on what you have learnt in the class, do the following steps:
                  a. Create a new folder
                  b. Put the following files in the folder
 
@@ -10,7 +10,7 @@
                  d. Commit them
                  e. And finally push them to GitHub
 
-1.b: Please share the commands for the above points
+Q1.b: Please share the commands for the above points
 
 A:  a. Creating a new folder
 
@@ -46,7 +46,7 @@ A:  a. Creating a new folder
          : git push -u origin main
 
 
-2: Tasks to Be Performed: 
+Q2: Tasks to Be Performed: 
 
 
 1. Create a Git working directory with feature1.txt and feature2.txt in the master branch 
@@ -111,7 +111,7 @@ Step 6: Checkout to develop, unstash the file, and commit
          git commit -m "Add develop.txt after unstashing"
 
 
-3. Tasks to Be Performed: 
+Q3. Tasks to Be Performed: 
 
 
    1. Create a Git working directory, with the following branches: 
@@ -186,3 +186,54 @@ A: 1. Create a Git working directory with branches: develop, f1, f2
             bash:git branch -d f2
      
             git push origin --delete f2
+
+Q4:Tasks to Be Performed: 
+
+1. Put master.txt on master branch, stage and commit 
+
+2. Create 3 branches: public 1, public 2 and private 
+
+3. Put public1.txt on public 1 branch, stage and commit 
+
+4. Merge public 1 on master branch 
+
+5. Merge public 2 on master branch 
+
+6. Edit master.txt on private branch, stage and commit 
+
+7. Now update branch public 1 and public 2 with new master code in private 
+
+8. Also update new master code on master 
+
+9. Finally update all the code on the private branch
+
+
+A: Step 1: Put master.txt on master branch, stage and commit
+   
+         bash: git checkout master
+               echo "This is master.txt" > master.txt
+               git add master.txt
+               git commit -m "Add master.txt to master"
+
+   Step 2: Create 3 branches: public1, public2, and private
+        
+         bash: git branch public1
+               git branch public2
+               git branch private
+
+   Step 3: Put public1.txt on public1 branch, stage and commit
+
+        bash: git checkout public1
+              echo "This is public1.txt" > public1.txt
+              git add public1.txt
+              git commit -m "Add public1.txt to public1"
+  
+   Step 4: Merge public1 into master
+
+        bash: git merge public2 -m "Merge public2 into master"
+
+   Step 5: Merge public2 into master
+       
+        bash: git merge public2 -m "Merge public2 into master"
+
+
