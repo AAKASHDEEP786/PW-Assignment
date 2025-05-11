@@ -45,7 +45,7 @@ A:  The grep command in Linux is used to search for specific patterns or text wi
      bash: grep "word" filename.txt
 
 6.  Step1: Create user p1
-    Step2: He should be part of 3 groups g1,g2,g3.
+    Step2: He should be part of 3 groups g1,g2,g3
     Step3: whenever he creates a file automatically in the group section of file grp g1 should come.
 
 A:  Step 1: Creating user p1:
