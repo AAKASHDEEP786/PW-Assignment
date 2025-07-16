@@ -1,0 +1,352 @@
+TASK 1:
+Continuous Integration (CI) - Task 1: Set Up a CI Pipeline
+
+Objective:
+Set up a basic CI pipeline that builds a project automatically whenever new code is pushed.
+
+Tools:
+GitHub Actions
+
+Steps to Follow:
+
+1. Create a Simple Application
+   - Use any one language: Node.js, Python, or Java.
+   - Include basic logic and at least one test case.
+
+2. Initialize a Git Repository
+   - Initialize a local Git repository.
+   - Add a .gitignore file and exclude unnecessary folders like node_modules.
+
+3. Set Up a Remote Repository
+   - Create a new repository on GitHub or GitLab.
+   - Push your local project to this remote repository.
+
+4. Configure a CI Tool
+   - Choose one CI tool: GitHub Actions (recommended), Jenkins, GitLab CI, or CircleCI.
+   - Create a CI workflow configuration file in the correct directory.
+     - For GitHub Actions, create `.github/workflows/ci.yml`
+   - Define steps to:
+     - Checkout the code
+     - Set up environment
+     - Install dependencies
+     - Run tests or build
+
+5. Push the CI Configuration
+   - Commit and push your workflow file to the main branch of your repository.
+
+6. Trigger the CI Pipeline
+   - Push any code change to trigger the CI pipeline.
+
+7. Verify the CI Execution
+   - Go to the CI tool’s dashboard (e.g., GitHub → Actions tab).
+   - Confirm the workflow/pipeline runs successfully.
+
+
+
+TASK 2:
+ Automated Build with Jenkins
+
+Objective:
+Install Jenkins and configure an automated build job that triggers when new code is pushed.
+
+Tools:
+- Jenkins
+- Docker (optional)
+- GitHub (or any Git-based repository)
+- Node.js or Java project
+
+Steps:
+
+1. Install Jenkins
+   - Option A: Use Docker to install Jenkins locally
+   - Option B: Download and install Jenkins manually on your local machine or a cloud VM (AWS, Azure, etc.)
+   - Access Jenkins at http://localhost:8080 after installation
+
+2. Install Required Plugins
+   - Go to Manage Jenkins → Plugin Manager
+   - Install the following plugins:
+     - Git plugin
+     - GitHub plugin
+     - NodeJS plugin (for Node.js projects) or Maven Integration (for Java projects)
+     - Pipeline plugin (optional but useful)
+
+3. Configure Build Tools
+   - Go to Manage Jenkins → Global Tool Configuration
+   - Set up NodeJS 
+   - Give the tool a name (e.g., “NodeJS-23”)
+
+4. Create a New Jenkins Job
+   - Go to Jenkins Dashboard → New Item
+   - Select “Freestyle Project” or “Pipeline”
+   - Give the job a name (e.g., “CI-Auto-Build-Job”)
+
+5. Configure the Job to Clone Git Repository
+   - Under “Source Code Management,” select “Git”
+   - Enter your GitHub repository URL
+   - Enter branch name (e.g., main )
+   - Provide credentials if the repo is private
+
+6. Define Build Steps
+   - For Node.js:
+     - npm install
+     - npm test
+   
+7. Configure GitHub Webhook Trigger
+   - In Jenkins job settings → Build Triggers
+     - Check “GitHub hook trigger for GITScm polling”
+   - In GitHub → Repository → Settings → Webhooks
+     - Add a new webhook:
+       - Payload URL: http://<your-local-ip>:8080/github-webhook/
+       - Content type: application/json
+       - Event: Just the push event
+
+8. Save and Build
+   - Save the Jenkins job configuration
+   - Push code to GitHub
+   - Jenkins will automatically start the build
+
+Outcome:
+Jenkins is configured to automatically clone and build your project whenever code is pushed to the repository.
+
+
+TASK 3:
+ Write Unit Tests for an Application
+
+Objective:
+Write unit tests for a simple application and integrate them into a Continuous Integration (CI) pipeline.
+
+Tools:
+- Jest (JavaScript)
+- GitHub Actions
+
+Steps:
+
+1. Create a Small Application
+   - Choose a simple project like a calculator, to-do list, or API
+   - Use any language: JavaScript (Node.js).
+2. Write Core Logic Functions
+   - Implement basic functions such as:
+     - Calculator: add, subtract, multiply, divide
+     - To-do list: addTask, deleteTask, updateTask
+     - API: basic GET/POST endpoints
+
+3. Write Unit Tests for Each Function
+   - Use:
+     - Jest for JavaScript
+     
+   - Write tests to validate each core function behaves as expected
+
+4. Run Tests Locally
+   - Verify that all unit tests pass on your local machine using the appropriate test runner
+
+5. Push Project to GitHub or GitLab
+   - Upload the application code along with test files
+   - Include a README file (optional but recommended)
+
+6. Integrate Unit Tests into CI Pipeline
+   - Use a CI tool: GitHub Actions
+   - Create a CI workflow or Jenkinsfile that:
+     - Clones the repo
+     - Installs dependencies
+     - Runs unit tests automatically on every code push
+
+7. Verify CI Test Execution
+   - Push code changes to trigger the CI pipeline
+   - Ensure the pipeline runs and shows test output (pass/fail)
+
+Outcome:
+A complete test-automated CI setup where unit tests are triggered and validated every time new code is pushed to the repository.
+
+
+TASK 4:
+
+Steps to Create a REST API, Write Integration Tests, and Run CI Pipeline
+
+1. Create a Simple REST API using Node.js
+Initialize a Node.js project using npm init.
+
+Install necessary packages: express, mongoose, and dotenv.
+
+Create a MongoDB model (e.g., User with name and email fields).
+
+Create API routes for basic CRUD operations (POST, GET, etc.).
+
+Use Express to handle routes and connect to MongoDB using mongoose.
+
+Create .env file to store PORT and MONGO_URI.
+
+2. Write Integration Tests using Postman
+Open Postman and create a new collection (e.g., "User API").
+
+Add requests:
+
+POST /api/users with JSON body { "name": "John", "email": "john@example.com" }
+
+GET /api/users
+
+Write test scripts in Postman to check:
+
+Response status codes (e.g., 201 or 200)
+
+Response body contains expected data
+
+Export the collection as user_api.postman_collection.json.
+
+3. Set Up GitHub Actions CI to Run Tests Automatically
+Create a .github/workflows/test.yml file in your project.
+
+Set the workflow to trigger on push to the main branch.
+
+Use the mongo service in GitHub Actions to start MongoDB.
+
+Create a .env file inside GitHub Actions with the correct MONGO_URI.
+
+Start the Node.js API server using nohup node server.js &.
+
+Use a sleep loop or port check (nc -z) to wait until the server is ready.
+
+Install Newman using npm install -g newman.
+
+Run the Postman collection using newman run user_api.postman_collection.json.
+
+
+TASK 5:
+
+PHASE 1: Create a Simple Web Application
+========================================
+1. Initialize a Node.js project and install Express.
+2. Create a JavaScript file to handle basic web routing.
+3. Update the package.json file to include a start script.
+4. Run the application and verify it works in the browser.
+
+========================================
+PHASE 2: Write a Load Test Using K6
+========================================
+1. Install K6 performance testing tool on your system.
+2. Create a K6 test script to simulate virtual users and HTTP requests.
+3. Run the K6 test against your running web application.
+4. Take a screenshot of the result summary from the terminal.
+
+========================================
+PHASE 3: Automate the Test in GitHub CI/CD
+========================================
+1. Push your Node.js application to a GitHub repository.
+2. Create a GitHub Actions workflow file in your project directory.
+3. Configure the workflow to:
+   - Checkout code
+   - Set up Node.js
+   - Install dependencies
+   - Start the app in the background
+   - Install K6
+   - Run the K6 performance test
+4. Commit and push the workflow file to GitHub.
+5. GitHub Actions will automatically run the performance test on each push or pull request.
+
+
+TASK 6:
+
+# Task: Implement Basic Security Testing in a CI Pipeline
+# Objective: Integrate security testing using SonarQube or OWASP ZAP
+# Tools: SonarQube, OWASP ZAP, Jenkins, GitLab CI
+
+# Step 1: Set up a simple web application
+# - Choose any web app (Node.js, Python, or Java)
+# - Host it locally so it can be scanned by ZAP or analyzed by SonarQube
+
+# Step 2: Install and run the chosen security tool
+# Option A: SonarQube for static code analysis
+# - Run SonarQube server (locally via Docker or directly)
+# - Install SonarScanner CLI
+# - Configure SonarQube project and generate a project token
+
+# Option B: OWASP ZAP for dynamic vulnerability scanning
+# - Run ZAP in headless mode using Docker or CLI
+# - Expose your web app locally on a port (e.g., 3000)
+
+# Step 3: Install necessary Jenkins/GitLab plugins
+# Jenkins:
+# - Install SonarQube Scanner plugin (if using SonarQube)
+# - Install Git plugin and Pipeline plugin
+
+# GitLab CI:
+# - Use `.gitlab-ci.yml` file with steps to scan using ZAP or SonarQube
+
+# Step 4: Automate the scan in CI pipeline
+# - Add a dedicated stage in your CI pipeline to run SonarScanner or ZAP
+# - Ensure the scanner runs every time new code is pushed or a merge request is made
+
+# Step 5: Run the CI pipeline
+# - Push code to trigger the pipeline automatically
+# - Wait for the security scan to complete
+
+# Step 6: Review the scan results
+# SonarQube:
+# - Open the SonarQube dashboard
+# - View code smells, vulnerabilities, bugs, and security hotspots
+
+# OWASP ZAP:
+# - Review the ZAP scan report or logs
+# - Identify reflected XSS, insecure headers, outdated libraries, etc.
+
+# Step 7: Take screenshots for documentation
+# - SonarQube: Screenshot dashboard showing security issues
+# - OWASP ZAP: Screenshot HTML report or scan summary
+
+# Step 8: Document and attach findings
+# - Mention tool used (SonarQube or ZAP)
+# - List vulnerabilities/issues found (if any)
+# - Attach screenshots of the output as part of your assignment
+
+
+
+TASK 7:
+
+# Task: Automate Deployment to Staging Environment
+# Objective: Set up a CI/CD pipeline that builds, tests, and deploys an application to a staging environment
+
+# Step 1: Install Docker and Docker Desktop
+# - Ensure Docker is running and accessible via CLI
+
+# Step 2: Start Jenkins using Docker container
+# - Create a Docker network for Jenkins
+# - Mount Docker socket to allow Jenkins to run Docker commands
+
+# Step 3: Access Jenkins Web UI
+# - Open Jenkins on localhost (default port 8080)
+# - Unlock Jenkins with the initial admin password
+# - Install suggested plugins
+
+# Step 4: Install additional Jenkins plugins manually
+# - NodeJS plugin
+# - Git plugin
+# - Pipeline plugin
+# - Docker plugin (optional)
+
+# Step 5: Configure Jenkins global tools
+# - Set up Node.js runtime (e.g., NodeJS 18) in Jenkins global configuration
+# - Configure Git if not already available
+
+# Step 6: Create a new Jenkins Pipeline job
+# - Go to “New Item” → Choose “Pipeline”
+# - Name the job and save
+
+# Step 7: Write pipeline steps to:
+# - Clone the application from GitHub
+# - Install dependencies
+# - Run tests
+# - Build Docker image
+# - Deploy the Docker container to local staging environment (port mapped)
+
+# Step 8: Run the Jenkins job
+# - Trigger build manually
+# - Ensure each stage completes successfully
+
+# Step 9: Verify deployment
+# - Check running Docker containers to confirm app is deployed
+# - Access the application in a browser using localhost and assigned port
+
+# Step 10: Document the process
+# - Take screenshots of Jenkins configuration
+# - Capture logs from the Jenkins console output
+# - Screenshot the running app in browser as staging verification
+
