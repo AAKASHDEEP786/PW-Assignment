@@ -4,7 +4,7 @@ Continuous Integration (CI) - Task 1: Set Up a CI Pipeline
 Objective:
 Set up a basic CI pipeline that builds a project automatically whenever new code is pushed.
 
-Tools:
+Tools: 
 GitHub Actions
 
 Steps to Follow:
