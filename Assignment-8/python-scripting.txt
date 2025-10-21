@@ -1,0 +1,208 @@
+1️⃣ Basic file operations & simple data processing
+
+➡️  Create sample.txt:
+    Hello, this is a sample file.
+    Line two.
+    Line three has some words.
+
+    Create data.csv:
+    id,name,score
+    1,Alice,85
+    2,Bob,72
+    3,Charlie,90
+    4,Diana,65
+    5,Ethan,78
+
+    Create the script: file_ops.py
+
+    #!/usr/bin/env python3
+    """
+    file_ops.py
+    Demonstrates basic file operations and simple CSV data processing.
+    """
+
+    import shutil
+    import os
+    from pathlib import Path
+    import json
+    import csv
+    import statistics
+
+    # Try importing pandas; skip if not installed
+    try:
+        import pandas as pd
+        HAS_PANDAS = True
+    except ImportError:
+        HAS_PANDAS = False
+        print("⚠️  pandas not installed — skipping pandas section.\n")
+
+    BASE = Path.cwd()
+
+    def text_file_demo():
+        txt = BASE / "sample.txt"
+        print(f"Reading {txt}")
+        with txt.open("r", encoding="utf-8") as f:
+            lines = f.readlines()
+        print("Contents:")
+        for i, line in enumerate(lines, 1):
+            print(f"{i}: {line.strip()}")
+
+        # Append a line
+        with txt.open("a", encoding="utf-8") as f:
+            f.write("\nAppended line by script.")
+
+        # Create a copy
+        copy_path = BASE / "sample_copy.txt"
+        shutil.copy(txt, copy_path)
+        print(f"Created copy: {copy_path}")
+
+    def list_and_manage_files():
+        print("\nListing .txt files in current directory:")
+        for p in BASE.glob("*.txt"):
+            print("-", p.name)
+
+        # Move the copy into a subfolder
+        outdir = BASE / "out"
+        outdir.mkdir(exist_ok=True)
+        src = BASE / "sample_copy.txt"
+        dst = outdir / "sample_copy.txt"
+        shutil.move(str(src), str(dst))
+        print(f"Moved {src.name} -> {dst}")
+
+        # Remove the moved file
+        if dst.exists():
+            dst.unlink()
+            print(f"Deleted {dst}")
+
+    def csv_processing_simple():
+        csv_path = BASE / "data.csv"
+        print(f"\nProcessing {csv_path} using csv module")
+        scores = []
+        rows = []
+        with csv_path.open("r", newline='', encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for r in reader:
+                r["score"] = int(r["score"])
+                rows.append(r)
+                scores.append(r["score"])
+
+        avg = statistics.mean(scores)
+        print(f"Average score: {avg:.2f}")
+
+        # Filter students scoring >= 80
+        high = [r for r in rows if r["score"] >= 80]
+        out_json = BASE / "top_students.json"
+        with out_json.open("w", encoding="utf-8") as f:
+            json.dump(high, f, indent=2)
+        print(f"Wrote top students to {out_json}")
+
+    def csv_processing_pandas():
+        if not HAS_PANDAS:
+            return  # Skip if pandas not available
+
+        csv_path = BASE / "data.csv"
+        print("\nProcessing using pandas (optional)")
+        df = pd.read_csv(csv_path)
+        df["score"] = df["score"].astype(int)
+        summary = {
+            "count": int(df.shape[0]),
+            "mean": float(df["score"].mean()),
+            "min": int(df["score"].min()),
+            "max": int(df["score"].max())
+        }
+        print("Summary:", summary)
+
+        # Save filtered CSV
+        df[df["score"] >= 80].to_csv(BASE / "top_students.csv", index=False)
+        print("Saved top_students.csv")
+
+    def main():
+        text_file_demo()
+        list_and_manage_files()
+        csv_processing_simple()
+        csv_processing_pandas()
+
+    if __name__ == "__main__":
+        main()
+
+
+
+    How to run:
+    python3 file_ops.py
+
+2️⃣ Simple web scraper
+
+➡️ Install packages:
+    sudo apt update
+    sudo apt install python3-requests python3-bs4 -y
+
+    Create the scraper: scraper.py
+
+    #!/usr/bin/env python3
+    """
+    scraper.py
+    Simple web scraper for quotes.toscrape.com (learning site).
+    Extracts quote, author, tags from multiple pages and saves to CSV.
+    """
+
+    import requests
+    from bs4 import BeautifulSoup
+    import csv
+    import time
+
+    BASE_URL = "https://quotes.toscrape.com"
+
+    HEADERS = {
+        "User-Agent": "AssignmentBot/1.0 (+https://example.com/contact) - for learning purposes"
+    }
+
+    def parse_quotes_from_soup(soup):
+        out = []
+        for q in soup.select(".quote"):
+            text = q.select_one(".text").get_text(strip=True)
+            author = q.select_one(".author").get_text(strip=True)
+            tags = [t.get_text(strip=True) for t in q.select(".tags .tag")]
+            out.append({"text": text, "author": author, "tags": ";".join(tags)})
+        return out
+
+    def scrape_pages(max_pages=5, delay=1.0):
+        results = []
+        url = BASE_URL
+        page = 1
+        while url and page <= max_pages:
+            print(f"Fetching page {page}: {url}")
+            r = requests.get(url, headers=HEADERS, timeout=10)
+            if r.status_code != 200:
+                print("Failed to fetch:", r.status_code)
+                break
+            soup = BeautifulSoup(r.text, "html.parser")
+            results.extend(parse_quotes_from_soup(soup))
+            # find next page link
+            next_btn = soup.select_one(".pager .next a")
+            if next_btn:
+                url = BASE_URL + next_btn["href"]
+            else:
+                url = None
+            page += 1
+            time.sleep(delay)  # polite crawling
+        return results
+
+    def save_to_csv(rows, path="quotes.csv"):
+        keys = ["text", "author", "tags"]
+        with open(path, "w", newline='', encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=keys)
+            writer.writeheader()
+            for r in rows:
+                writer.writerow(r)
+        print(f"Saved {len(rows)} rows to {path}")
+
+    def main():
+        rows = scrape_pages(max_pages=10, delay=1.0)
+        save_to_csv(rows)
+
+    if __name__ == "__main__":
+        main()
+
+
+    How to run:
+    python3 scraper.py
