@@ -1,0 +1,110 @@
+1️⃣ What are data structures, and why are they important?
+
+➡️ Data structures are ways to organize and store data efficiently for easy access and modification.
+    They’re important because they help in optimizing algorithms and managing large data effectively.
+    Example: Lists, Tuples, Sets, Dictionaries in Python.
+
+2️⃣ Difference between mutable and immutable data types
+
+➡️ Mutable: Can be changed after creation. Example: list, dict, set
+
+    Immutable: Cannot be changed once created. Example: tuple, string, int
+
+3️⃣ Difference between Lists and Tuples
+
+➡️
+    | Feature    | List                 | Tuple                        |
+    | ---------- | -------------------- | ---------------------------- |
+    | Mutability | Mutable              | Immutable                    |
+    | Syntax     | `[]`                 | `()`                         |
+    | Speed      | Slower               | Faster                       |
+    | Use case   | When data can change | When data must stay constant |
+
+4️⃣ How dictionaries store data
+
+➡️ Dictionaries store data as key–value pairs in a hash table structure.
+    Example: 
+        person = {"name": "John", "age": 25}
+
+5️⃣ Why use a Set instead of a List?
+
+➡️ Because sets don’t allow duplicates and offer faster membership checking (in keyword).
+
+6️⃣ What is a string and how is it different from a list?
+
+➡️ String is a sequence of characters (immutable).
+    List is a sequence of elements (mutable).
+    Example: "hello" ≠ ['h', 'e', 'l', 'l', 'o']
+
+7️⃣ How do tuples ensure data integrity?
+
+➡️ Since tuples are immutable, their data cannot be modified — ensuring consistency.
+
+8️⃣ What is a hash table, and how does it relate to dictionaries?
+
+➡️ A hash table uses a hash function to map keys to values efficiently.
+    Python dictionaries are built using hash tables.
+
+9️⃣ Can lists contain different data types?
+
+➡️ Yes. Example:
+            my_list = [1, "hello", 3.5, True]
+
+🔟 Why are strings immutable?
+
+➡️ Because Python stores them in a fixed memory location for performance and security.
+
+11️⃣ Advantages of dictionaries over lists
+
+➡️ 1. Faster data retrieval using keys
+
+    2. Better for associative data (key-value pairs)
+
+12️⃣ When to use a tuple over a list?
+
+➡️ When you want fixed data that should not change, like coordinates (x, y).
+
+13️⃣ How do sets handle duplicates?
+
+➡️ Automatically remove them — only unique elements are stored.
+
+14️⃣ How does “in” work for lists vs dictionaries?
+
+➡️ 1. In list: checks for element
+
+    2. In dict: checks for key
+
+    Example:
+        3 in [1,2,3] → True  
+        "name" in {"name": "Aakash"} → True
+
+15️⃣ Can you modify elements of a tuple?
+
+➡️ No. Tuples are immutable.
+
+16️⃣ What is a nested dictionary? Example:
+
+➡️ student = {
+    "name": "John",
+    "marks": {"math": 90, "science": 85}
+    }
+
+17️⃣ Time complexity of accessing elements in a dictionary
+
+➡️ O(1) (constant time) on average.
+
+18️⃣ When are lists preferred over dictionaries?
+
+➡️ When data order matters or you don’t need key-value pairs.
+
+19️⃣ Why are dictionaries considered unordered?
+
+➡️ They’re based on hashing, not position — order is not guaranteed before Python 3.7.
+
+20️⃣ Difference between a list and a dictionary in terms of data retrieval
+
+➡️ 1. List: Access by index
+
+    2. Dict: Access by key
+
+    
