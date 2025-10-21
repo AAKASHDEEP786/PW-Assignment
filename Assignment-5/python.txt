@@ -1,0 +1,146 @@
+Python Assignment Submission
+============================
+
+1️⃣ Explain the key features of Python that make it a popular choice for programming
+
+➡️ Key Features of Python
+
+Python is one of the most popular programming languages because of these features:
+
+| Feature                          | Description                                                               |
+| -------------------------------- | ------------------------------------------------------------------------- |
+| **Simple & Easy to Learn**       | Python’s syntax is similar to English, making it beginner-friendly.       |
+| **Interpreted Language**         | Code runs line-by-line, no need for compilation.                          |
+| **Dynamically Typed**            | No need to declare variable types explicitly.                             |
+| **Extensive Libraries**          | Comes with libraries like `math`, `os`, `pandas`, `numpy`, etc.           |
+| **Portable**                     | Runs on Windows, macOS, and Linux without modification.                   |
+| **Object-Oriented & Functional** | Supports both OOP (classes, objects) and functional (lambda, map) styles. |
+
+Example: print("Hello, Python!")
+
+Runs directly without compilation.
+
+2️⃣ Describe the role of predefined keywords in Python and provide examples of how they are used in a
+program
+
+➡️ Role of Predefined Keywords in Python
+
+Keywords are reserved words that have special meanings and cannot be used as variable names.
+
+Examples:
+if, for, while, True, False, def, return, class, etc.
+
+Use in a program:
+# using predefined keywords
+if True:
+    print("This is a keyword example")
+
+def greet():
+    return "Hello World"
+
+print(greet())
+
+# Here, if, True, def, and return are predefined keywords.
+
+3️⃣ Compare and contrast mutable and immutable objects in Python with examples
+
+➡️ Mutable vs Immutable Objects
+
+| Type          | Meaning                        | Examples                       | Can be Changed? |
+| ------------- | ------------------------------ | ------------------------------ | --------------- |
+| **Mutable**   | Can be modified after creation | `list`, `dict`, `set`          | ✅ Yes           |
+| **Immutable** | Cannot be changed once created | `int`, `float`, `str`, `tuple` | ❌ No            |
+
+Example:
+# Mutable example
+numbers = [1, 2, 3]
+numbers.append(4)
+print(numbers)   # [1, 2, 3, 4]
+
+# Immutable example
+name = "Aakash"
+# name[0] = "B"   # Error
+name = "Deep"     # New string created
+print(name)
+
+4️⃣ Discuss the different types of operators in Python and provide examples of how they are used
+
+➡️ Types of Operators in Python
+
+| Type           | Description             | Example                                 |                    |
+| -------------- | ----------------------- | --------------------------------------- | ------------------ |
+| **Arithmetic** | Perform math operations | `+`, `-`, `*`, `/`, `%` → `10 + 5 = 15` |                    |
+| **Comparison** | Compare values          | `==`, `!=`, `<`, `>` → `a > b`          |                    |
+| **Logical**    | Combine conditions      | `and`, `or`, `not`                      |                    |
+| **Assignment** | Assign values           | `a += 5`, `b = 10`                      |                    |
+| **Bitwise**    | Operate on bits         | `&`, `                                  | `, `^`, `<<`, `>>` |
+| **Membership** | Check for membership    | `'a' in 'apple'`                        |                    |
+| **Identity**   | Compare memory location | `a is b`, `a is not b`                  |                    |
+
+Example:
+a, b = 10, 5
+print(a + b)       # Arithmetic
+print(a > b)       # Comparison
+print(a > 5 and b < 10)  # Logical
+
+5️⃣ Explain the concept of type casting in Python with examples
+
+➡️ Type Casting in Python
+Type casting means converting one data type into another.
+
+| Function  | Description         | Example              |
+| --------- | ------------------- | -------------------- |
+| `int()`   | Converts to integer | `int(4.7)` → `4`     |
+| `float()` | Converts to float   | `float(5)` → `5.0`   |
+| `str()`   | Converts to string  | `str(100)` → `"100"` |
+
+Example:
+a = "10"
+b = int(a) + 5
+print(b)       # 15
+
+
+6️⃣ How do conditional statements work in Python? Illustrate with examples
+
+➡️ Conditional Statements in Python
+Conditional statements help to make decisions based on conditions.
+
+Syntax:
+if condition:
+    statement
+elif another_condition:
+    statement
+else:
+    statement
+
+Example:
+x = 20
+
+if x > 25:
+    print("Greater than 25")
+elif x == 20:
+    print("Equal to 20")
+else:
+    print("Less than 20")
+
+# Output: Equal to 20
+
+7️⃣ Describe the different types of loops in Python and their use cases with examples.
+
+➡️ Types of Loops in Python
+
+| Loop Type      | Description                                          | Example              |
+| -------------- | ---------------------------------------------------- | -------------------- |
+| **for loop**   | Used to iterate over a sequence (list, string, etc.) | `for i in range(5):` |
+| **while loop** | Repeats as long as condition is true                 | `while x < 5:`       |
+
+Example 1 – for loop:
+for i in range(1, 6):
+    print(i)
+
+Example 2 – while loop:
+x = 1
+while x <= 5:
+    print(x)
+    x += 1
+
