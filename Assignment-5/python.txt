@@ -1,7 +1,7 @@
 Python Assignment Submission
 ============================
 
-1️⃣ Explain the key features of Python that make it a popular choice for programming
+1️⃣ Explain the key features of Python that make it a popular choice for programming 
 
 ➡️ Key Features of Python
 
