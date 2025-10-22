@@ -28,12 +28,13 @@ This file contains the written report explaining:
 
 ## 🧰 Tools & Technologies Used
 - Jenkins (CI/CD)
-- Docker Desktop
+- Docker 
 - EKS (Kubernetes)
 - Git & GitHub
 - YAML / Kubernetes manifests
 
 ---
+
 
 
 
