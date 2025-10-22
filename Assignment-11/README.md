@@ -1,4 +1,4 @@
-                            # PW-Assignment: JMeter Load Test
+# PW-Assignment: JMeter Load Test
 
 This repository contains a JMeter load testing task for frontend performance testing.
 
