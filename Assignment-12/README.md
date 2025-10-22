@@ -35,6 +35,9 @@ This file contains the written report explaining:
 
 ---
 
+## 👤 Author
+**Aakash Deep**  
+_Assignment 12 – Configuration Management & Continuous Delivery_
 
 
 
