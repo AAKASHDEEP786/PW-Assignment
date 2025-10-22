@@ -17,9 +17,10 @@ my-testing-app/
 │           ├── CalculatorTest.java          # Unit Tests
 │           ├── CalculatorServiceTest.java   # Integration Tests
 │           └── LoginTest.java               # End-to-End Test (Selenium)
+```
 
 ⚙️ Technologies Used
-
+```
 | Tool              | Purpose                          |
 | ----------------- | -------------------------------- |
 | **Java 17**       | Programming language             |
@@ -57,4 +58,5 @@ mvn test
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 [INFO] BUILD SUCCESS
 ```
+
 
