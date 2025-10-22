@@ -1,0 +1,11 @@
+# JMeter logs
+jmeter.log
+
+# Any temporary files
+*.tmp
+*.bak
+
+# IDE/editor files (if using VSCode, IntelliJ, etc.)
+.vscode/
+.idea/
+*.iml
