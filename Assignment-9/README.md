@@ -3,7 +3,7 @@
 This is a sample Java testing project demonstrating the use of Unit Tests, Integration Tests, and End-to-End (E2E) Tests using JUnit 5 and Selenium WebDriver.
 
 📂 Project Structure
-
+```
 my-testing-app/
 ├── pom.xml
 ├── src/
@@ -26,7 +26,7 @@ my-testing-app/
 | **JUnit 5**       | Unit and integration testing     |
 | **Selenium 4.25** | Browser automation (E2E testing) |
 | **Maven**         | Build & dependency management    |
-
+```
 🚀 Setup Instructions
 
 1. Clone the Repository
@@ -57,3 +57,4 @@ mvn test
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 [INFO] BUILD SUCCESS
 ```
+
