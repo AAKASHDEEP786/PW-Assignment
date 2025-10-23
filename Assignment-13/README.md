@@ -3,7 +3,6 @@
 ## Objective
 Install and configure Ansible on a local environment and execute basic configuration scripts (playbooks).
 
----
 
 ## Step 1: Install Ansible
 
@@ -73,6 +72,7 @@ Add the following content:
     ```
 
 You should see active (running).
+
 
 
 
