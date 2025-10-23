@@ -11,7 +11,7 @@ Run the following commands to install Ansible on Ubuntu/Linux:
     ```
     sudo apt update
     sudo apt install ansible -y
-    ```
+    
 ## Check installation:
     ```
     ansible --version
@@ -72,6 +72,7 @@ Add the following content:
     ```
 
 You should see active (running).
+
 
 
 
