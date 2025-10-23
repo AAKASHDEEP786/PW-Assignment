@@ -42,8 +42,7 @@ Create a file named setup.yml:
     nano setup.yml
     ```
 Add the following content:
-
----
+```
 - name: Basic Ansible Setup
   hosts: local
   become: true
@@ -62,7 +61,7 @@ Add the following content:
         name: nginx
         state: started
         enabled: true
----
+```
 
 ## Step 5: Run the Playbook
     ```bash
@@ -74,4 +73,5 @@ Add the following content:
     ```
 
 You should see active (running).
+
 
