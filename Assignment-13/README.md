@@ -8,7 +8,6 @@ Install and configure Ansible on a local environment and execute basic configura
 
 Run the following commands to install Ansible on Ubuntu/Linux:
 
-    ```
     sudo apt update
     sudo apt install ansible -y
     
@@ -72,6 +71,7 @@ Add the following content:
     ```
 
 You should see active (running).
+
 
 
 
