@@ -1,0 +1,26 @@
+---
+- name: Install and configure Apache web server
+  hosts: webservers
+  become: yes
+  tasks:
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Ensure Apache is running and enabled
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+
+    - name: Copy custom index.html
+      copy:
+        dest: /var/www/html/index.html
+        content: "<h1>Welcome to My Apache Web Server</h1>"
+
