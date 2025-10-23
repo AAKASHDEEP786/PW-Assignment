@@ -38,9 +38,10 @@ Run the ping module to verify Ansible can communicate with localhost:
     ```
 ## Step 4: Create a Basic Playbook
 Create a file named setup.yml:
-```bash
-nano setup.yml
-```
+
+    ```bash
+    nano setup.yml
+    ```
 Add the following content:
 
 ---
@@ -72,4 +73,5 @@ Add the following content:
     ```bash
     sudo systemctl status nginx
     ```
+
 You should see active (running).
