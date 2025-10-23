@@ -18,7 +18,7 @@ sudo apt install ansible -y
     ansible --version
     ```
 ## Step 2: Configure Inventory
-    Create a folder for the assignment:
+Create a folder for the assignment:
     ```bash
     mkdir ansible-assignment && cd ansible-assignment
     ```
@@ -38,7 +38,6 @@ Run the ping module to verify Ansible can communicate with localhost:
     ```
 ## Step 4: Create a Basic Playbook
 Create a file named setup.yml:
-
     ```bash
     nano setup.yml
     ```
@@ -75,3 +74,4 @@ Add the following content:
     ```
 
 You should see active (running).
+
