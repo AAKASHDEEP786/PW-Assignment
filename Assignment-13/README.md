@@ -9,10 +9,10 @@ Install and configure Ansible on a local environment and execute basic configura
 
 Run the following commands to install Ansible on Ubuntu/Linux:
 
-```bash
-sudo apt update
-sudo apt install ansible -y
-```
+    ```bash
+    sudo apt update
+    sudo apt install ansible -y
+    ```
 ## Check installation:
     ```bash
     ansible --version
@@ -73,5 +73,6 @@ Add the following content:
     ```
 
 You should see active (running).
+
 
 
