@@ -1,18 +1,20 @@
-# Kubernetes Assignment — Minikube
+# Kubernetes Assignment – Minikube
 
 ## Prereqs
 - Docker Desktop (with WSL integration)
 - minikube
 - kubectl
-- helm (optional, for charts)
+- helm
 
 ## Steps taken
-1. Start minikube: `minikube start --driver=docker`
-2. Apply resources: `kubectl apply -f k8s/deployment.yaml -f k8s/service.yaml`
-3. Access service: `minikube service nginx-service --url`
-4. (Optional) Ingress: `kubectl apply -f k8s/ingress.yaml`
-5. Helm chart: `helm create my-nginx-chart && helm install my-nginx ./my-nginx-chart`
-
+1) Start Minikube (create cluster)
+   Use Docker as the driver (most common when Docker Desktop is installed):
+   ```
+    minikube start --driver=docker --memory=4098 --cpus=2
+    # confirm kubectl context
+    kubectl config current-context
+    kubectl get nodes
+  
 ## Commands used for debugging
 - `kubectl get pods,svc,deployments,ingress`
 - `kubectl logs <pod>`
