@@ -39,7 +39,7 @@
    kubectl get svc
    kubectl get ingress
    ```
-   # view URL
+   view URL
    ```
    minikube service nginx-service --url
    ```
