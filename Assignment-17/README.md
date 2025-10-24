@@ -48,7 +48,7 @@ minikube service nginx-service --url
 ```
 Open the URL printed by minikube service ... --url.
    
-## 3) Resource management:
+## 3) Resource management
 Basic listing:
 ```
 kubectl get pods
