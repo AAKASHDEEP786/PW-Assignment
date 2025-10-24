@@ -26,9 +26,10 @@ kubectl config current-context
 kubectl get nodes
 ```
 ## 2) Deploy a simple app (Deployment + Service)
-– Create deployment.yaml
-– Create service.yaml
-– ingress.yaml
+
+   – Create deployment.yaml
+   – Create service.yaml
+   – ingress.yaml
 
 Apply them:
 ```
